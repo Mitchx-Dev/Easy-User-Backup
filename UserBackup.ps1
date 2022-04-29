@@ -29,6 +29,9 @@ Function LogWrite
    Add-content $log_file -value $logstring
 }
 
+#creates backup directory
+mkdir -p $backup_destination
+
 #Appends Important Data to Log File
 LogWrite "-------+ Backup Information +-------"
 LogWrite "ComputerName: $env:COMPUTERNAME"
@@ -38,7 +41,7 @@ LogWrite "OS Version: $([System.Environment]::OSVersion.VersionString)"
 LogWrite "Serial Number: $env:Serial"
 LogWrite "Backed up at: $time"
 LogWrite "----------------------------------`r`n"
-
+$time
 
 # Copies Directories to Backup Folder
 foreach ($dir in $backup_directories)
@@ -47,4 +50,6 @@ foreach ($dir in $backup_directories)
    Copy-Item -Path $dir -Destination $backup_destination -Force -Recurse
    LogWrite "Copied $dir"
 }
+
+
 Write-Host -ForegroundColor green "`r`nBackup Complete, Log file saved to $log_file"
