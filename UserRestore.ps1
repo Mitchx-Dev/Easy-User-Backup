@@ -59,7 +59,8 @@ foreach ($dir in $restore_origin)
    $dest = $restore_destination[$i].ToString()
    Write-Host -ForegroundColor Cyan "`r`nCopying $dir to $dest"
    Copy-Item -Path $dir -Destination $dest -Force -Recurse
-   LogWrite "Restored $dir to $dest"
+   LogWrite "Restored $dir`t to $dest"
    $i++
 }
-Write-Host -ForegroundColor green "`r`nRestore Complete, Log file saved to $log_file"
+
+Write-Host -ForegroundColor green "`r`nRestore Complete. Log file saved to $log_file"

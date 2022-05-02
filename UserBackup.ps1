@@ -46,6 +46,8 @@ $time
 # Copies Directories to Backup Folder
 foreach ($dir in $backup_directories)
 {
+
+
    Write-Host -ForegroundColor Cyan "Copying $dir"
    Copy-Item -Path $dir -Destination $backup_destination -Force -Recurse
    LogWrite "Copied $dir"
