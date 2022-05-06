@@ -7,7 +7,6 @@ $usr = Read-Host "Enter User to Backup: "
 # Data Backup Directory
 $backup_destination = "F:\UserBackup\" + $usr + "_" + $date
 
-#usr profile
 $usr_profile = "C:\Users\$usr"
 
 #Log File Directory
