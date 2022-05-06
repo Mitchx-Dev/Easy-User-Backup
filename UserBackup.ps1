@@ -1,23 +1,29 @@
+$date = Get-Date -Format "MM.dd.yyyy"
+$time = Get-Date -UFormat "%R"
+$env:USERPROFILE
+#User to Backup
+$usr = Read-Host "Enter User to Backup: "
+
 # Data Backup Directory
-$backup_destination = "E:\UserBackup\" + $env:COMPUTERNAME + "_" + $date
+$backup_destination = "F:\UserBackup\" + $usr + "_" + $date
+
+#usr profile
+$usr_profile = "C:\Users\$usr"
 
 #Log File Directory
 $log_file = $backup_destination + "\backup.log"
 
-$date = Get-Date -Format "MM.dd.yyyy"
-$time = Get-Date -UFormat "%R"
-
 #List of directories to back up
-$backup_directories = ("$env:USERPROFILE\Contacts",
-                      "$env:USERPROFILE\Desktop",
-                      "$env:USERPROFILE\Documents",
-                      "$env:USERPROFILE\Downloads",
-                      "$env:USERPROFILE\AppData\Roaming\Microsoft\Signatures",
-                      "$env:USERPROFILE\Pictures",
-                      "$env:USERPROFILE\Videos",
+$backup_directories = ("$usr_profile\Contacts",
+                      "$usr_profile\Desktop",
+                      "$usr_profile\Documents",
+                      "$usr_profile\Downloads",
+                      "$usr_profile\AppData\Roaming\Microsoft\Signatures",
+                      "$usr_profile\Pictures",
+                      "$usr_profile\Videos",
                       "C:\Users\Public\Caterpillar",
-                      "$env:USERPROFILE\AppData\Local\Google\Chrome\User Data\Default\Bookmarks",
-                      "$env:USERPROFILE\AppData\Local\Google\Chrome\User Data\Default\Bookmarks.bak"
+                      "$usr_profile\AppData\Local\Google\Chrome\User Data\Default\Bookmarks",
+                      "$usr_profile\AppData\Local\Google\Chrome\User Data\Default\Bookmarks.bak"
  
                       )  
 
