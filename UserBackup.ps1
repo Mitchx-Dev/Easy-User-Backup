@@ -7,6 +7,7 @@ $usr = Read-Host "Enter User to Backup: "
 # Data Backup Directory
 $backup_destination = "F:\UserBackup\" + $usr + "_" + $date
 
+#usr profile
 $usr_profile = "C:\Users\$usr"
 
 #Log File Directory
@@ -40,7 +41,7 @@ mkdir -p $backup_destination
 #Appends Important Data to Log File
 LogWrite "-------+ Backup Information +-------"
 LogWrite "ComputerName: $env:COMPUTERNAME"
-LogWrite "Username: $env:USERNAME"
+LogWrite "Username: $usr"
 LogWrite "Computer Model: $env:Model"
 LogWrite "OS Version: $([System.Environment]::OSVersion.VersionString)"
 LogWrite "Serial Number: $env:Serial"

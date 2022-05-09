@@ -51,7 +51,7 @@ Function LogWrite
 #Appends Important Data to Log File
 LogWrite "-------+ Restore Information +-------"
 LogWrite "ComputerName: $env:COMPUTERNAME"
-LogWrite "Username: $env:USERNAME"
+LogWrite "Username: $usr"
 LogWrite "Computer Model: $env:Model"
 LogWrite "OS Version: $([System.Environment]::OSVersion.VersionString)"
 LogWrite "Serial Number: $env:Serial"
